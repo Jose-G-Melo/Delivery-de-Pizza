@@ -1,12 +1,12 @@
 from tkinter import *
 from tkinter.font import Font
 from PIL import Image, ImageTk
-
+import sys
 class myApp(object):
     def __init__(self, **kw):
         self.window = Tk()
         self.window.title("Pizzaria Luigi")
-        self.window.iconbitmap('C:\\Users\\vitor\\OneDrive\\Área de Trabalho\\devVitor\\pizzariaLuigi (2).ico')
+        self.window.iconbitmap('pizzariaLuigi.ico')
         self.window.geometry("{}x{}" .format(self.window.winfo_screenwidth(), self.window.winfo_screenheight()))
         
         my_font = Font(family="Comic Sans MS",size=16, weight="bold")
@@ -15,16 +15,17 @@ class myApp(object):
         img = img.resize((1380, 600), Image.ANTIALIAS)
         image = ImageTk.PhotoImage(img)
         self.window.img = image
-        background_image = Label(self.window, image=image, background="grey")
-        background_image.place(x=0, y=-200, relwidth=1, relheight=1)
-        self.window.wm_attributes("-transparentcolor", 'grey')
+        bg_image = Canvas(self.window, width=1380, height = 600, bg="red")
+        bg_image.create_image(0, -150, image=image, anchor="nw")
+        bg_image.create_text(680, 300, text="Pizzaria Luigi", font=Font(family="Comic Sans MS",size=60, weight="bold"), fill="#FFFFFF")
+        bg_image.pack()
+       
 
         background_white = Label(self.window, background="#FFFFFF")
         background_white.place(x=0, y=430, relwidth=1, relheight=1)
 
-        nameStore = Label(background_image, text="Pizzaria Luigi", foreground="#F02036")
-        nameStore.configure(font=Font(family="Comic Sans MS",size=60, weight="bold"))
-        nameStore.place(x=430, y=300)
+        subtitle = Label(self.window, text="Sabor com qualidade!", font=my_font, background="#FFFFFF", foreground="#2D2119")
+        subtitle.place(x=560, y=430)
 
         buttonLogin = Button(self.window, width=21, text="ENTRAR", relief=SOLID, font=my_font)
         buttonLogin.configure(background="#FFFFFF", foreground="#2D2119")
