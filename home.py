@@ -35,9 +35,8 @@ class myApp(object):
         buttonCreateAccount.configure(background="#2D2119", foreground="#FFFFFF")
         buttonCreateAccount.place(x=530, y=600)
 
-        nameCreator = Label(self.window, text="Software criado e mantido por José Vitor G. de Melo")
-        nameCreator.configure(foreground="#2D2119", background="#FFFFFF")
-        nameCreator.config(font=Font(family="Comic Sans MS",size=10, weight="bold"))
+        nameCreator = Label(self.window, text="Software criado e mantido por José Vitor G. de Melo", foreground="#2D2119", background="#FFFFFF")
+        nameCreator.configure(font=Font(family="Comic Sans MS",size=10, weight="bold"))
         nameCreator.place(x=1000, y=680)
 
     def execute(self):
